@@ -1,0 +1,381 @@
+[WEAPON]
+name Proto Sword
+stars 0
+type 1
+[END]
+[WEAPON]
+name Proto Bomb
+stars 0
+type 2
+[END]
+[WEAPON]
+name Proto Gun
+stars 0
+type 1
+[END]
+[WEAPON]
+name Calibur
+stars 2
+type 1
+gate1 normal_gate
+mat1 light shard
+[END]
+[WEAPON]
+name Tempered Calibur
+prereq Calibur
+stars 3
+type 1
+gate1 normal_gate
+mat1 green shard
+mat2 light shard
+[END]
+[WEAPON]
+name Ascended Calibur
+prereq Tempered Calibur
+stars 4
+type 1
+gate1 normal_gate
+gate2 fire_gate
+gate3 freeze_gate
+mat1 Meteor Mote
+mat2 green shard
+mat3 light shard
+[END]
+[WEAPON]
+name Leviathan Blade
+prereq Ascended Calibur
+stars 5
+type 1
+gate1 normal_gate
+gate2 fire_gate
+gate3 freeze_gate
+mat1 sun silver
+mat2 meteor mote
+mat3 green shard
+[END]
+[WEAPON]
+name Cold Iron Carver
+prereq Tempered Calibur
+stars 4
+type 1
+gate1 normal_gate
+gate2 undead_gate
+gate3 shock_gate
+mat1 Meteor Mote
+mat2 Critter Carapace
+mat3 Light Shard
+[END]
+[WEAPON]
+name Cold Iron Vanquisher
+prereq Cold Iron Carver
+stars 5
+type 1
+gate1 normal_gate
+gate2 undead_gate
+gate3 shock_gate
+mat1 Primal Ore
+mat2 Drake Scale
+mat3 Gel Drop
+[END]
+[WEAPON]
+name Shard Bomb
+stars 2
+type 3
+gate1 normal_gate
+mat1 Red Shard
+[END]
+[WEAPON]
+name Super Shard Bomb
+stars 3
+type 3
+gate1 normal_gate
+prereq Shard Bomb
+mat1 Blast Powder
+mat2 Red Shard
+[END]
+[WEAPON]
+name Heavy Shard Bomb
+stars 4
+type 3
+gate1 normal_gate
+gate2 fiend_gate
+prereq Super Shard Bomb
+mat1 Torch Stone
+mat2 Blast Powder
+mat2 Red Shard
+[END]
+[WEAPON]
+name Deadly Shard Bomb
+stars 5
+type 3
+gate1 normal_gate
+gate2 fiend_gate
+prereq Heavy Shard Bomb
+mat1 Flame Soul
+mat2 Torch Stone
+mat2 Red Shard
+[END]
+[WEAPON]
+name Dark Matter Bomb
+stars 2
+type 3
+gate1 slime_gate
+gate2 gremlin_gate
+mat1 Dark Shard
+[END]
+[WEAPON]
+name Rock Salt Bomb
+stars 3
+type 3
+gate1 slime_gate
+gate2 gremlin_gate
+gate3 construct_gate
+prereq Dark matter Bomb
+mat1 Power Cell
+mat2 Dark Shard
+[END]
+[WEAPON]
+name Ionized Salt Bomb
+stars 4
+type 3
+gate1 slime_gate
+gate2 gremlin_gate
+gate3 construct_gate
+prereq Rock Salt Bomb
+mat1 Volt Oil
+mat2 Power Cell
+mat2 Dark Shard
+[END]
+[WEAPON]
+name Shocking Salt Bomb
+stars 5
+type 3
+gate1 slime_gate
+gate2 gremlin_gate
+gate3 construct_gate
+prereq Ionized Salt Bomb
+mat1 Storm Chaser
+mat2 Volt Oil
+mat2 Dark Shard
+[END]
+[WEAPON]
+name Spur
+stars 2
+type 4
+gate1 normal_gate
+mat1 light shard
+[END]
+[WEAPON]
+name Arc Razor
+stars 3
+type 4
+gate1 normal_gate
+prereq Arc Razor
+mat1 dark shard
+mat2 light shard
+[END]
+[WEAPON]
+name Winmillion
+stars 4
+type 3
+gate1 normal_gate
+gate2 poison_gate
+gate3 fire_gate
+prereq Arc Razor
+mat1 Red shard
+mat2 Dark shard
+mat2 Light shard
+[END]
+[WEAPON]
+name Brandish
+stars 2
+type 1
+gate1 normal_gate
+mat1 light shard
+[END]
+[WEAPON]
+name Cautery Sword
+type 1
+stars 3
+gate1 normal_gate
+gate2 slime_gate
+gate3 freeze_gate
+mat1 red shard
+mat2 light shard
+prereq Brandish
+[END]
+[WEAPON]
+name Nightblade
+type 1
+stars 3
+gate1 gremlin_gate
+gate2 slime_gate
+mat1 soul dust
+mat2 brimstone
+prereq Brandish
+[END]
+[WEAPON]
+name Silent Nightblade
+type 2
+stars 4
+gate1 gremlin_gate
+gate2 slime_gate
+mat1 Ghost bell
+mat2 soul dust
+mat3 brimstone
+prereq Nightblade
+[END]
+[WEAPON]
+name Acheron
+type 2
+stars 5
+gate1 gremlin_gate
+gate2 slime_gate
+gate3 normal_gate
+mat1 Shadow Steel
+mat2 Ghost bell
+mat3 soul dust
+prereq Silent Nightblade
+[END]
+[WEAPON]
+name Fireburst Brandish
+type 1
+stars 3
+gate1 construct_gate
+gate2 undead_gate
+mat1 Blast Powder
+mat2 Cooling Cell
+prereq Brandish
+[END]
+[WEAPON]
+name Blazebrand
+type 2
+stars 4
+gate1 construct_gate
+gate2 undead_gate
+mat1 Meteor Mote
+mat2 Cooling Cell
+mat3 Blast powder
+prereq Fireburst Brandish
+[END]
+[WEAPON]
+name Combuster
+type 2
+stars 5
+gate1 construct_gate
+gate2 undead_gate
+gate3 freeze_gate
+mat1 Flame Soul
+mat2 Torchstone
+mat3 Drake Scale
+prereq Blazebrand
+[END]
+[WEAPON]
+name Iceburst Brandish
+type 1
+stars 3
+gate1 construct_gate
+gate2 undead_gate
+mat1 Blast Powder
+mat2 Cooling Cell
+prereq Brandish
+[END]
+[WEAPON]
+name Blizzbrand
+type 2
+stars 4
+gate1 construct_gate
+gate2 undead_gate
+mat1 Meteor Mote
+mat2 Cooling Cell
+mat3 Blast powder
+prereq Iceburst Brandish
+[END]
+[WEAPON]
+name Glacius
+type 2
+stars 5
+gate1 construct_gate
+gate2 undead_gate
+gate3 fire_gate
+mat1 Everfrost
+mat2 Hailstone
+mat3 Drake Scale
+prereq Blizzbrand
+[END]
+[WEAPON]
+name Shockburst Brandish
+type 1
+stars 3
+gate1 construct_gate
+gate2 undead_gate
+mat1 Power Cell
+mat2 Waste Module
+prereq Brandish
+[END]
+[WEAPON]
+name Boltbrand
+type 2
+stars 4
+gate1 construct_gate
+gate2 undead_gate
+mat1 Meteor Mote
+mat2 Volt Oil
+mat3 Power Cell
+prereq Shockburst Brandish
+[END]
+[WEAPON]
+name Voltedge
+type 2
+stars 5
+gate1 construct_gate
+gate2 undead_gate
+gate3 poison_gate
+mat1 Storm Chaser
+mat2 Volt Oil
+mat3 Drake Scale
+prereq Shockbrand
+[END]
+[WEAPON]
+name Splinter Bomb
+stars 2
+type 3
+gate1 beast_gate
+gate2 fiend_gate
+mat1 Light Shard
+[END]
+[WEAPON]
+name Sun Shards
+stars 3
+type 3
+gate1 beast_gate
+gate2 fiend_gate
+gate3 undead_gate
+prereq Splinter Bomb
+mat1 Brimstone
+mat2 Light Shard
+[END]
+[WEAPON]
+name Radiant Sun Shards
+stars 4
+type 3
+gate1 beast_gate
+gate2 fiend_gate
+gate3 undead_gate
+prereq Sun Shards
+mat1 Ironwood
+mat2 Brimstone
+mat3 Light Shard
+[END]
+[WEAPON]
+name Scintilating Sun Shards
+stars 5
+type 3
+gate1 beast_gate
+gate2 fiend_gate
+gate3 undead_gate
+prereq Radiant Sun Shards
+mat1 Sun Steel
+mat2 Ironwood
+mat3 Light Shard
+[END]

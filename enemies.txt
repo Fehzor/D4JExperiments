@@ -1,0 +1,18 @@
+undead_gate kat
+undead_gate dust zombie
+undead_gate howlitzer
+construct_gate retrode
+construct_gate gun puppy
+construct_gate mecha knight
+beast_gate wolver
+beast_gate dustbun
+beast_gate chromalisk
+fiend_gate devilite
+fiend_gate trojan
+fiend_gate silkwing
+gremlin_gate thwacker
+gremlin_gate mender
+gremlin_gate gremlin bomber
+slime_gate slime cube
+slime_gate lichen
+slime_gate polyp

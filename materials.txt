@@ -1,0 +1,161 @@
+name         Blue Shard
+star         0
+theme    Construct
+theme    Gremlin
+theme    Freeze
+theme    Shock
+description  A shard of Moonstone that is too small to be used in powering gates but highly useful in alchemy.  
+name         Dark Shard
+star         0
+theme    Fiend
+theme    Undead
+theme    Poison
+theme    Shock
+description  A shard of Dark Matter that is too small to be used in powering gates but highly useful in alchemy.  
+name         Green Shard
+star         0
+theme    Beast
+theme    Slime
+theme    Freeze
+theme    Poison
+description  A shard of Valestone that is too small to be used in powering gates but highly useful in alchemy.  
+name         Light Shard
+star         0
+theme    Construct
+theme    Slime
+theme    Undead
+theme    Fire
+description  A shard of Luminite that is too small to be used in powering gates but highly useful in alchemy.  
+name         Red Shard
+star         0
+theme    Beast
+theme    Fiend
+theme    Gremlin
+theme    Fire
+description  A shard of Crimsonite that is too small to be used in powering gates but highly useful in alchemy.  
+name         Beast Scale
+star         1
+theme        beast
+theme        gremlin
+description  A relatively intact scale recovered from a Clockworks creature. 
+name         Brimstone
+star         1
+theme        fiend
+theme        undead
+description  A smelly, stygian, sulfuric shard commonly found in the Underworld. 
+name         Gel Drop
+star         1
+theme        slime
+theme        construct
+description  A drop of goo collected from a jelly. It's still quivering.
+name         Critter Carapace
+star         2
+theme        beast
+theme        gremlin
+description  A chitinous chunk carefully shucked from a Clockworks creature. It's in surprisingly good shape.  
+name         Driftwood
+star         2
+theme        slime
+theme        construct
+description  A peculiar piece of wood that just won't stay put.
+name         Forbidden Fruit
+star         2
+theme        fiend
+theme        undead
+description  A sinful snack favored by famished fiends.
+name         Drake Scale
+star         3
+theme        beast
+theme        gremlin
+description  A solid scale wrested from a brutal beast. 
+name         Redwood
+star         3
+theme        slime
+theme        construct
+description  A sturdy chunk of fine, unfinished wood. It's typically used in the production of cabinets.
+name         Soul Dust
+star         3
+theme        undead
+theme        fiend
+description  The dust of the departed. Whether it still retains any shred of a soul remains to be seen.
+name         Ghost Bell
+star         4
+theme        undead
+theme        fiend
+description  A small, silvery bell worn by considerate ghosts that alerts the living when they are close by.
+name         Ironwood
+star         4
+theme        slime
+theme        construct
+description  A pristine log of one of the hardest substances known to the Spiral Knights.
+name         Meteor Mote
+star         4
+theme        gremlin
+theme        beast
+name         Primal Ore
+star         5
+theme        beast
+theme        gremlin
+description  An extraordinary metal imbued with the savage spirit of the wild.
+name         Shadow Steel
+star         5
+theme        fiend
+theme        undead
+description  An extraordinary metal imbued with the creeping darkness of the Underworld.
+name         Storm Chaser
+star         5
+theme        shock
+description  A powerful essence that presents itself to beings in dire straits. With this, you feel like you could turn the nighttime into the day.
+name         Sun Silver
+star         5
+theme        construct
+theme        slime
+description  An extraordinary metal imbued with the radiant light of the sky.
+name         Plague Essence
+star         5
+theme        poison
+description  A powerful essence left behind when a creature perishes from a particularly putrid disease.
+name         Everfrost
+star         5
+theme        freeze
+description  A small patch of ice crystals that never seem to melt, even when exposed to direct heat.
+name         Flame Soul
+star         5
+theme        fire
+description  A powerful essence left behind when a creature perishes during a blind rage.
+name         Cooling Cell
+star         1
+theme        freeze
+theme        fire
+description  A small device used in complex machines to keep them from overheating. Also handy to keep in your pockets on hot summer days.  
+name         Blast Powder
+star         1
+theme        fire
+theme        freeze
+description  A dangerous by-product produced by fire-based organic creatures. Gremlins like to use it to blow stuff up.  
+name         Waste Module
+star         1
+theme        poison
+theme        shock
+description  A small receptable that once collected refuse from a device built to wreak havoc. Now, it just plain reeks.
+name         Power Cell
+star         1
+theme        shock
+theme        poison
+description  A small device used to power complex machines.
+name         Toxic Core
+star         3
+theme        poison
+description  A solid, pulsating lump that oozes with vitriol.
+name         Volt Oil
+star         3
+theme        shock
+description  A slippery substance that always holds a slight electrical charge.
+name         Hailstone
+star         3
+theme        freeze
+description  A small rock that's always a little cold to the touch. It's great for chilling beverages without diluting their flavor.
+name         Torchstone
+star         3
+theme        fire
+description  A small rock that smolders constantly. Gremlins patrolling the Cooling Chambers occasionally use them as a hand warmer.
