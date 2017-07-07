@@ -15,24 +15,46 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class RescueCamp extends Area{
-    public RescueCamp(){
-        name = "Crossing that Delicious Chasm";
-        crownPayout = 500;
-        timeTillCompletion = 60000 * 5;
+public class GITM extends Area{
+    
+    public GITM(){
+        name = "Ghosts in the Machine";
+        crownPayout = 2100;
+        timeTillCompletion = 60000 * 90;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
+        if(oRan.nextInt(100) < 20){
+            UD.eternal_orbs += 1;
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("stupid_shinning_crystals");
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("mad_skills");
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("prestige");
+        }
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("murcurial_mail");
+        }
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("murcurial_helm");
+        }
+        if(oRan.nextInt(100) < 23){
+            this.giveLoot(UD);
+        }
     }
 }

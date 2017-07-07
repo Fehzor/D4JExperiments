@@ -15,11 +15,11 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo;
+package IDLER;
 
+import static IDLER.SuperRandom.oRan;
 import java.util.ArrayList;
 import java.util.HashMap;
-import sx.blah.discord.examples.BoppBot;
 
 /**
  *
@@ -220,6 +220,8 @@ public class GearMap {
         line[3] = "winter_grave";
         subLine(ret,line);
         
+        
+        
         //voltech
         line[0] = "firotech_alchemer";
         line[1] = "firotech_alchemer_mk_ii";
@@ -232,6 +234,13 @@ public class GearMap {
         line[1] = "voltech_alchemer_mk_ii";
         line[2] = "volt_driver";
         line[3] = "magma_driver";
+        createLine(ret,line);
+        
+        //torpor
+        line[0] = "slumber_smogger";
+        line[1] = "slumber_smogger_mkii";
+        line[2] = "slumber_squall";
+        line[3] = "torpor_tantrum";
         createLine(ret,line);
         
         //VOLTAIC TEMPEST
@@ -415,6 +424,8 @@ public class GearMap {
         //BRANDISHES
         putGear(ret,"brandish","",2);
         putGear(ret,"cautery_sword","brandish",3);
+        putGear(ret,"avanced_cautery_sword","brandish",4);
+        putGear(ret,"amputator","avanced_cautery_sword",5);
 
         putGear(ret,"fireburst_brandish","brandish",3);
         putGear(ret,"blazebrand","fireburst_brandish",4);
@@ -466,11 +477,64 @@ public class GearMap {
         putGear(ret,"frozen_great_cleaver","NA",5);
         putGear(ret,"mighty_great_cleaver","NA",5);
         
+        putGear(ret,"pot_o_crowns","NA",5);
+        putGear(ret,"caladbolg","NA",5);
+        putGear(ret,"teddy_bear_buckler","NA",5);
+        putGear(ret,"sweet_dreams","NA",5);
+        
         putGear(ret,"black_kat_cowl","NO SOUL",11);
         putGear(ret,"black_kat_raiment","NO SOUL",11);
         
         putGear(ret,"groundbreaker_set","NA",11);
         putGear(ret,"purple_spiral","NA",23);
+        
+        //LOLOLOLOL- easteregg for grilling things.
+        putGear(ret,"cheese_burger","NA",6);
+        putGear(ret,"hot_dog","NA",6);
+        
+        
+        putGear(ret,"early_riser_ring","NA",3);
+        putGear(ret,"dawn_bracelet","NA",4);
+        putGear(ret,"daybreaker_band","NA",5);
+        putGear(ret,"somnambulists_totem","NA",5);
+        
+        putGear(ret,"hatch_handle","NA",5);
+        putGear(ret,"stalker_blades","NA",5);
+        
+        putGear(ret,"ironmight_plate_shield","NA",5);
+        putGear(ret,"lost_soul","NA",5);
+        
+        putGear(ret,"darkfang_shield","NA",4);
+        
+        putGear(ret,"mug_of_misery","NA",5);
+        putGear(ret,"wicked_idol","NA",5);
+        
+        putGear(ret,"tri_guard_helm","NA",1);
+        putGear(ret,"tri_guard_armor","NA",1);
+        putGear(ret,"mad_skills","NA",10);
+        
+        putGear(ret,"dark_leviathan_blade","NA",5);
+        putGear(ret,"warden_armor","NA",5);
+        putGear(ret,"ruinous_crystal","NA",5);
+        putGear(ret,"warden_helm","NA",5);
+        
+        putGear(ret,"stupid_shinning_crystals","NA",4);
+        putGear(ret,"prestige","NA",5);
+        
+        putGear(ret,"mercurial_mail","NA",5);
+        putGear(ret,"mercurial_helm","NA",5);
+        
+        putGear(ret,"almirian_crusader_armor","NA",5);
+        putGear(ret,"almirian_crusader_helm","NA",5);
+        
+        putGear(ret,"mortafire_mortar","NA",5);
+        
+        putGear(ret,"perfect_snowball","NA",5);
+        putGear(ret,"maulos_maul","NA",5);
+        
+        putGear(ret,"snipe_feather","NA",1);
+        
+        putGear(ret,"","NA",5);
         
         return ret;
     }
@@ -485,13 +549,17 @@ public class GearMap {
         
         ret.add("node_slime_crusher");
         ret.add("deadly_charcoaler");
-        ret.add("overcharged_mixmaster");
         ret.add("celestial_orbitgun");
         
         ret.add("celestial_saber");
         ret.add("celestial_vortex");
         ret.add("frozen_great_cleaver");
         ret.add("mighty_great_cleaver");
+        
+        ret.add("caladbolg");
+        ret.add("pot_o_crowns");
+        ret.add("teddy_bear_buckler");
+        ret.add("sweet_dreams");
         
         return ret;
     }
@@ -505,6 +573,12 @@ public class GearMap {
     }
     
     public static String craft(UserData user, String gear){
+        if((gear.equals("cheese_burger")
+                || gear.equals("hot_dog"))
+                && !user.gear.contains("deadly_charcoaler")
+                && !user.gear.contains("furious_fork")){
+            return "You need deadly charcoaler and furious fork to grill patties!";
+        };
         if(gearMap.get(gear) == null){
             int stars = starMap.get(gear);
             String check = checkOrbs(user,stars);
@@ -539,43 +613,43 @@ public class GearMap {
     public static String checkOrbs(UserData user, int stars){
         switch(stars){
                 case 1:
-                    if(user.flawed_orbs >= 3 && user.crowns >= 5000){
+                    if(user.flawed_orbs >= 3 && user.crowns >= 450){
                         user.flawed_orbs -= 3;
-                        user.crowns -= 5000;
+                        user.crowns -= 450;
                     } else {
-                        return "You need 3 flawed orbs and 5,000 crowns for that!";
+                        return "You need 3 flawed orbs and 450 crowns for that!";
                     }
                     break;
                 case 2:
-                    if(user.simple_orbs >= 3 && user.crowns >= 25000){
+                    if(user.simple_orbs >= 3 && user.crowns >= 1400){
                         user.simple_orbs -= 3;
-                        user.crowns -= 25000;
+                        user.crowns -= 1400;
                     } else {
-                        return "You need 3 simple orbs and 25,000 crowns for that!";
+                        return "You need 3 simple orbs and 1,400 crowns for that!";
                     }
                     break;
                 case 3:
-                    if(user.adv_orbs >= 3 && user.crowns >= 50000){
+                    if(user.adv_orbs >= 3 && user.crowns >= 5000){
                         user.adv_orbs -= 3;
-                        user.crowns -= 50000;
+                        user.crowns -= 5000;
                     } else {
-                        return "You need 3 advanced orbs and 50,000 crowns for that!";
+                        return "You need 3 advanced orbs and 5,000 crowns for that!";
                     }
                     break;
                 case 4:
-                    if(user.elite_orbs >= 3 && user.crowns >= 100000){
+                    if(user.elite_orbs >= 3 && user.crowns >= 12500){
                         user.elite_orbs -= 3;
-                        user.crowns -= 100000;
+                        user.crowns -= 12500;
                     } else {
-                        return "You need 3 elite orbs and 100,000 crowns for that!";
+                        return "You need 3 elite orbs and 12,500 crowns for that!";
                     }
                     break;
                 case 5:
-                    if(user.eternal_orbs >= 3 && user.crowns >= 200000){
+                    if(user.eternal_orbs >= 3 && user.crowns >= 30000){
                         user.eternal_orbs -= 3;
-                        user.crowns -= 200000;
+                        user.crowns -= 30000;
                     } else {
-                        return "You need 3 eternal orbs and 200,000 crowns for that!";
+                        return "You need 3 eternal orbs and 30,000 crowns for that!";
                     } 
                     break;
             }
@@ -678,6 +752,15 @@ public class GearMap {
             return "OCH costs 1 million crowns.";
         }
         
+        if(toBuy.equals("overcharged_mixmaster")){
+            if(UD.crowns > 1350000000){
+                UD.gear.add("overcharged_mixmaster");
+                UD.crowns -= 13500000;
+                return "Purchased that fat mixer.";
+            }
+            return "The fun mixer costs 13500000 crowns. Seems fair.";
+        }
+        
         if(toBuy.equals("flawed_orbs")){
             if(UD.crowns > 5000){
                 UD.flawed_orbs+=3;
@@ -717,6 +800,35 @@ public class GearMap {
                 return "Purchased 3 eternal orbs";
             }
             return "Eternal orbs cost 200K crowns.";
+        }
+        
+        if(toBuy.equals("purple_spiral")){
+            if(UD.snowflakes > 5000){
+                UD.snowflakes -= 5000;
+                UD.gear.add("purple_spiral");
+                return "Purchased purple spiral!";
+            }
+            return "Purple Spiral requires 3000 core tokens to purchase.";
+        }
+        
+        
+        
+        if(toBuy.equals("groundbreaker_set")){
+            if(UD.snowflakes > 3000){
+                UD.snowflakes -= 3000;
+                UD.gear.add("groundbreaker_set");
+                return "Purchased groundbreaker set!";
+            }
+            return "Groundbreaker set requires 2000 core tokens to purchase.";
+        }
+        
+        if(toBuy.equals("legendary_equipment")){
+            if(UD.snowflakes > 1337){
+                UD.snowflakes -= 1337;
+                UD.gear.add(legends.get(oRan.nextInt(legends.size())));
+                return "Purchased something cool!";
+            }
+            return "Legendary Equipment costs 1337 tokens and is random.";
         }
         
         return "I didn't quite catch that.";

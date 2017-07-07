@@ -15,33 +15,34 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class FSC extends Area{
+public class S6 extends Area{
     
-    public FSC(){
-        name = "Fire Storm Citadel";
-        crownPayout = 8000;
-        timeTillCompletion = timeTillCompletion * 45;
+    public S6(){
+        name = "Stratum 6- Aracade";
+        crownPayout = 9000;
+        timeTillCompletion = timeTillCompletion * 40;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
-        if(oRan.nextInt(100) < 8){
+        for(int i = 0; i < 12; ++i){
+            UD.giveMinerals();
+        }
+        if(oRan.nextInt(100) < 15){
             UD.eternal_orbs += 1;
         }
         if(oRan.nextInt(100) < 23){
             this.giveLoot(UD);
-        } else {
-            UD.almire_coins+=3;
         }
     }
 }

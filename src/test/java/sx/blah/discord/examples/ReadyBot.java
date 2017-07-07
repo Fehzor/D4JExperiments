@@ -1,5 +1,6 @@
 package sx.blah.discord.examples;
 
+import IDLER.BaseBot;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.IListener;
 import sx.blah.discord.handle.impl.events.ReadyEvent;

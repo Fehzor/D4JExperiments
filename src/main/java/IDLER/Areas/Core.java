@@ -15,34 +15,43 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class Casino extends Area{
-    
-    public Casino(){
-        name = "(EVENT) Golden Slime Casino";
-        crownPayout = 0;
-        timeTillCompletion = 6000;
+public class Core extends Area{
+    public Core(){
+        name = "The core";
+        crownPayout = 1;
+        timeTillCompletion = timeTillCompletion * 1;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
-        if(UD.slime_coins > 0){
-            UD.slime_coins += -1;
-        } else {
-            UD.crowns -= 200;
+        UD.snowflakes += 1;
+        
+        if(oRan.nextInt(1000) ==23){
+            UD.flawed_orbs += 1;
         }
-        UD.crowns += 50 * oRan.nextInt(10);
-        if(oRan.nextInt(100) == 23){
-            UD.crowns += 50 * oRan.nextInt(1000);
+        if(oRan.nextInt(1000) == 23){
+            UD.simple_orbs += 1;
         }
-       
+        if(oRan.nextInt(1000) == 23){
+            UD.adv_orbs += 1;
+        }
+        if(oRan.nextInt(1000) == 23){
+            UD.elite_orbs += 1;
+        }
+        if(oRan.nextInt(1000) == 23){
+            UD.eternal_orbs += 1;
+        }
+        if(oRan.nextInt(2) == 0){
+            this.giveLoot(UD);
+        }
     }
 }

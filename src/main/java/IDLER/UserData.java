@@ -15,12 +15,12 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo;
+package IDLER;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import sx.blah.discord.gametwo.Areas.Area;
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
+import IDLER.Areas.Area;
+import static IDLER.SuperRandom.oRan;
 
 /**
  *
@@ -53,7 +53,7 @@ public class UserData implements Serializable{
     public ArrayList<String> gear = new ArrayList<>();
     
     public void giveMinerals(){
-        this.minerals += 5 + oRan.nextInt(20);
+        this.minerals += 1 + oRan.nextInt(200);
     }
     
     public String giveSlimeCoin(){
@@ -62,7 +62,7 @@ public class UserData implements Serializable{
         if(time > 30000){
             slime_coins+=1;
             
-            if(oRan.nextInt(500) == 23){
+            if(oRan.nextInt(1337) == 23){
                 String add = GearMap.legends.get(oRan.nextInt(GearMap.legends.size()));
                 gear.add(add);
                 slime_timer = System.currentTimeMillis();

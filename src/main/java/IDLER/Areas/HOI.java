@@ -15,26 +15,48 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class BurgerKing extends Area{
+public class HOI extends Area{
     
-    public BurgerKing(){
-        name = "(EVENT) Alone in the Dark";
-        crownPayout = 0;
-        timeTillCompletion = 60000 * 60 * 24;
+    public HOI(){
+        name = "Heart of Ice";
+        crownPayout = 2100;
+        timeTillCompletion = 60000 * 90;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
-        UD.gear.add("black_kat_cowl");
-        UD.gear.add("black_kat_raiment");
+        if(oRan.nextInt(100) < 20){
+            UD.eternal_orbs += 1;
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("stupid_shinning_crystals");
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("mad_skills");
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("prestige");
+        }
+        
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("perfect_snowball");
+        }
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("maulos_maul");
+        }
+        
+        if(oRan.nextInt(100) < 23){
+            this.giveLoot(UD);
+        }
     }
 }

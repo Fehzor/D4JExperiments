@@ -15,37 +15,40 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class Roarm extends Area{
+public class S3 extends Area{
     
-    public Roarm(){
-        name = "Roarmulus Twins";
-        crownPayout = 2500;
+    public S3(){
+        name = "Stratum 3- Arcade";
+        crownPayout = 3000;
         timeTillCompletion = timeTillCompletion * 25;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
-        
-        if(oRan.nextInt(100) < 10){
-            UD.elite_orbs += 1;
+        for(int i = 0; i < 6; ++i){
+            UD.giveMinerals();
         }
-        if(oRan.nextInt(100) < 3){
+
+        if(oRan.nextInt(100) < 7){
+            UD.simple_orbs += 1;
+        }
+        
+        if(oRan.nextInt(100) < 20){
             UD.adv_orbs += 1;
         }
+        
         if(oRan.nextInt(100) < 23){
             this.giveLoot(UD);
-        } else {
-            UD.bark_mods+=3;
         }
     }
 }

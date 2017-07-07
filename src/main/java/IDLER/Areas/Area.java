@@ -15,14 +15,13 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
+import IDLER.BoppBot;
 import java.util.ArrayList;
 import java.util.HashMap;
-import sx.blah.discord.examples.BoppBot;
-import sx.blah.game.UserSpace;
-import sx.blah.discord.gametwo.UserData;
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
+import IDLER.UserData;
+import static IDLER.SuperRandom.oRan;
 
 
 /**
@@ -32,7 +31,7 @@ import static sx.blah.discord.gametwo.SuperRandom.oRan;
 public class Area {
     public static HashMap<String,Area> areas = loadAreas();
     public static ArrayList<String> areaNames;
-    public static int areaNumber = 9;
+    public static int areaNumber = 27;
     
     public String name = "Wherever";
     public int crownPayout = 1000;
@@ -60,29 +59,67 @@ public class Area {
             areaNames.add("rc");
         } 
         
-        ret.put("t1", new T1());
-        areaNames.add("t1");
+        ret.put("haven", new Haven());
+        areaNames.add("haven");
+        ret.put("s1", new S1());
+        areaNames.add("s1");
+        
+        ret.put("s2", new S2());
+        areaNames.add("s2");
+        ret.put("starlight", new Starlight_cradle());
+        areaNames.add("starlight");
         
         ret.put("snarb", new Snarb());
         areaNames.add("snarb");
+        ret.put("recruits", new Recruits());
+        areaNames.add("recruits");
         
-        ret.put("t2", new T2());
-        areaNames.add("t2");
+        ret.put("s3", new S3());
+        areaNames.add("s3");
+        ret.put("trojan",new Trojans());
+        areaNames.add("trojan");
+        
+        ret.put("s4", new S4());
+        areaNames.add("s4");
+        ret.put("decon", new Decon());
+        areaNames.add("decon");
         
         ret.put("rjp", new RJP());
         areaNames.add("rjp");
+        ret.put("sewer", new Sewer());
+        areaNames.add("sewer");
 
         ret.put("rt", new Roarm());
         areaNames.add("rt");
+        ret.put("devilites", new Devilites());
+        areaNames.add("devilites");
         
-        ret.put("t3", new T3());
-        areaNames.add("t3");
+        ret.put("s5", new S5());
+        areaNames.add("s5");
+        ret.put("arena",new Arena());
+        areaNames.add("arena");
+        
+        ret.put("s6", new S6());
+        areaNames.add("s6");
+        ret.put("gauntlet",new Gauntlet());
+        areaNames.add("gauntlet");
         
         ret.put("fsc", new FSC());
         areaNames.add("fsc");
+        ret.put("arkus",new Arkus());
+        areaNames.add("arkus");
 
+        ret.put("loa", new LOA());
+        areaNames.add("loa");
+        ret.put("gitm", new GITM());
+        areaNames.add("gitm");
+        ret.put("c42", new COMPOUND());
+        areaNames.add("c42");
+        ret.put("hoi", new HOI());
+        areaNames.add("hoi");
         ret.put("dan", new DAN());
         areaNames.add("dan");
+        
         
         ret.put("core", new Core());
         areaNames.add("core");

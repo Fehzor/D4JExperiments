@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo;
+package IDLER;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,13 +46,21 @@ public class UserSpace implements Serializable{
         return data.users.get(name);
     }
     
+    public static UserData getUser(String name){
+        if(data.users.get(name) == null){
+            UserData add = new UserData();
+            data.users.put(name, add);
+        }
+        return data.users.get(name);
+    }
+    
     //SAVING AND LOADING
     
     public static UserSpace data = loadProgress();
     
     public static UserSpace loadProgress(){
         try{
-            File F = new File("data");
+            File F = new File("IDLER/data");
             FileInputStream FIS = new FileInputStream(F);
             ObjectInputStream OIS = new ObjectInputStream(FIS);
             
@@ -73,7 +81,7 @@ public class UserSpace implements Serializable{
     
     public static void saveProgress(){
         try{
-            File F = new File("data");
+            File F = new File("IDLER/data");
             FileOutputStream FOS = new FileOutputStream(F);
             ObjectOutputStream OOS = new ObjectOutputStream(FOS);
             

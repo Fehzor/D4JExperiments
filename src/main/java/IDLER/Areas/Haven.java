@@ -15,40 +15,30 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class T2 extends Area{
+public class Haven extends Area{
     
-    public T2(){
-        name = "Tier 2 arcade";
-        crownPayout = 5000;
-        timeTillCompletion = timeTillCompletion * 30;
+    public Haven(){
+        name = "Haven (begging + finding minerals)";
+        crownPayout = 200;
+        timeTillCompletion = timeTillCompletion*10;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
-        for(int i = 0; i < 40; ++i){
-            UD.giveMinerals();
-        }
-
-        if(oRan.nextInt(100) < 3){
-            UD.simple_orbs += 1;
-        }
+        UD.giveMinerals();
         
-        if(oRan.nextInt(100) < 12){
-            UD.adv_orbs += 1;
-        }
-        
-        if(oRan.nextInt(100) < 8){
-            UD.elite_orbs += 1;
+        if(oRan.nextInt(100) < 50){
+            UD.gear.add("snipe_feather");
         }
         
         if(oRan.nextInt(100) < 23){

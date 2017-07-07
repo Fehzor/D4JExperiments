@@ -15,42 +15,38 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class Core extends Area{
-    public Core(){
-        name = "The core";
-        crownPayout = 0;
-        timeTillCompletion = timeTillCompletion * 1;
+public class S2 extends Area{
+    
+    public S2(){
+        name = "Stratum 2- Arcade";
+        crownPayout = 1500;
+        timeTillCompletion = timeTillCompletion * 20;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
-        UD.snowflakes += 1;
+        super.giveLoot(UD);
+        for(int i = 0; i < 4; ++i){
+            UD.giveMinerals();
+        }
         
-        if(oRan.nextInt(100) ==23){
+        if(oRan.nextInt(100) < 10){
             UD.flawed_orbs += 1;
         }
-        if(oRan.nextInt(100) == 23){
+        if(oRan.nextInt(100) < 25){
             UD.simple_orbs += 1;
         }
-        if(oRan.nextInt(100) == 23){
-            UD.adv_orbs += 1;
-        }
-        if(oRan.nextInt(100) == 23){
-            UD.elite_orbs += 1;
-        }
-        if(oRan.nextInt(100) == 23){
-            UD.eternal_orbs += 1;
-        }
-        if(oRan.nextInt(100) == 23){
+        
+        if(oRan.nextInt(100) < 23){
             this.giveLoot(UD);
         }
     }

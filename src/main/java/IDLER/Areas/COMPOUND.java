@@ -15,19 +15,19 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class DAN extends Area{
+public class COMPOUND extends Area{
     
-    public DAN(){
-        name = "Dreams and Nightmares";
+    public COMPOUND(){
+        name = "Compound 42";
         crownPayout = 2100;
         timeTillCompletion = 60000 * 90;
         //timeTillCompletion = 0;
@@ -35,12 +35,26 @@ public class DAN extends Area{
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
-        for(int i = 0; i < 220; ++i){
-            UD.giveMinerals();
-        }
-        if(oRan.nextInt(100) < 19){
+        if(oRan.nextInt(100) < 20){
             UD.eternal_orbs += 1;
         }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("stupid_shinning_crystals");
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("mad_skills");
+        }
+        if(oRan.nextInt(100) == 3){
+            UD.gear.add("prestige");
+        }
+        
+        if(oRan.nextInt(100) < 4){
+            UD.gear.add("mortafire_mortar");
+        }
+        if(oRan.nextInt(100) < 2){
+            UD.gear.add("stalker_blades");
+        }
+        
         if(oRan.nextInt(100) < 23){
             this.giveLoot(UD);
         }

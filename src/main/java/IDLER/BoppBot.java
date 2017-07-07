@@ -1,4 +1,4 @@
-package sx.blah.discord.examples;
+package IDLER;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,11 +15,11 @@ import java.util.Scanner;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventDispatcher;
 import sx.blah.discord.api.events.IListener;
-import sx.blah.discord.gametwo.Areas.Area;
-import sx.blah.discord.gametwo.GearMap;
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
-import sx.blah.discord.gametwo.UserSpace;
+import IDLER.Areas.Area;
+import IDLER.GearMap;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
+import IDLER.UserSpace;
 import sx.blah.discord.handle.impl.events.MessageReceivedEvent;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IMessage;
@@ -43,7 +43,7 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
         //3 = Apocrea
         //4 = Winterfest
         //5 = Slime casino
-        public static final int EVENT = 2;
+        public static final int EVENT = 0;
         
         
         public void checkDate(){
@@ -107,7 +107,7 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
                 try{
                     channel = sent.getOrCreatePMChannel();
                     
-                    if(mess.contains("public")){
+                    if(mess.contains("pub") || mess.contains("-p")){
                         channel = message.getChannel();
                     }
                     
@@ -120,6 +120,7 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
                                 + "check = check your progress farming\n\n"
                                 + "craft = craft- all one word at the end, gear_name_here\n"
                                 + "buy = buy with boss tokens\n\n"
+                                + "who = shows where everyone is farming!\n\n"
                                 + "deposit = put in minerals towards unlocking the next area!\n"
                                 + "progress = how much progress towards the next area has been made",channel);
                     }
@@ -132,7 +133,7 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
                     send(a,channel);
                 }
                 
-                if(!mess.contains("bop")){
+                if(!(mess.contains("bop") || mess.charAt(0)=='!')){
                     return;
                 }
                 
@@ -247,9 +248,31 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
                 
                 if(mess.contains("gear")){
                     String toSend = "You have crafted the following gear:\n";
+                    HashMap<String,Integer> gear = new HashMap<>();
                     for(String s : User.gear){
-                        String nam = s;
+                        if(gear.containsKey(s)){
+                            gear.put(s, gear.get(s)+1);
+                        } else {
+                            gear.put(s, 1);
+                        }
+                    }
+                    for(String s : gear.keySet()){
+                        String nam = s + " x"+gear.get(s);
                         toSend += nam+"\n";
+                    }
+                    send(toSend,channel);
+                }
+                
+                if(mess.contains("who")){
+                    String toSend = "Here's where everyone is farming!\n\n";
+                    for(String id : UserSpace.data.users.keySet()){
+                        try{
+                            UserData get = UserSpace.getUser(id);
+                            String farm = get.farming;
+                            String name = BaseBot.INSTANCE.client.getUserByID(id).getName();
+
+                            toSend+=name+": "+farm+"\n";
+                        } catch (Exception E){};
                     }
                     send(toSend,channel);
                 }
@@ -368,9 +391,10 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
                     oScan.next();
                     String name = oScan.next();
                     String item = oScan.next();
-                    oScan = new Scanner(System.in);
-                    String check = oScan.next();
-                    if(check.equals("yes")){
+                    if(sent.getID().equals("144857966816788482")){
+                        if(item.equals("minerals")){
+                            UserSpace.data.users.get(name).minerals = this.getNeeded() + 1;
+                        }
                         UserSpace.data.users.get(name).gear.add(item);
                     }
                     
@@ -384,10 +408,35 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
                     oScan.next();
                     String name = oScan.next();
                     String item = oScan.next();
-                    oScan = new Scanner(System.in);
-                    String check = oScan.next();
-                    if(check.equals("yes")){
+                    if(sent.getID().equals("144857966816788482")){
                         UserSpace.data.users.get(name).gear.remove(item);
+                    }
+                    
+                    
+                }
+                
+                if(mess.contains("inspect")){
+                    Scanner oScan = new Scanner(message.getContent());
+                    System.out.println(message.getContent());
+                    oScan.next();
+                    oScan.next();
+                    String name = oScan.next();
+                    if(sent.getID().equals("144857966816788482")){
+                        String toSend = name +" has the following gear: \n";
+                        UserData GNUUser = UserSpace.getUser(name);
+                        HashMap<String,Integer> gear = new HashMap<>();
+                        for(String s : GNUUser.gear){
+                        if(gear.containsKey(s)){
+                            gear.put(s, gear.get(s)+1);
+                        } else {
+                            gear.put(s, 1);
+                        }
+                    }
+                    for(String s : gear.keySet()){
+                        String nam = s + " x"+gear.get(s);
+                        toSend += nam+"\n";
+                    }
+                    send(toSend,channel);
                     }
                     
                     
@@ -412,19 +461,45 @@ public class BoppBot extends BaseBot implements IListener<MessageReceivedEvent> 
         
         public int getNeeded(){
             switch(UserSpace.data.areas){
-                case 1: return 3000;
-                case 2: return 8000;
-                case 3: return 20000;
-                case 4: return 50000;
-                case 5: return 100000;
-                case 6: return 150000;
-                case 7: return 200000;
-                case 8: return 400000;
-                case 9: return 1000000;
-                case 10: return 2500000;
+                case 1: return 1000;//s1
+                
+                case 2: return 5000;//s2 = 200 = 25 runs
+                case 3: return 5000;//starlight cradle
+                
+                case 4: return 12000;//snarb = 400 = 30 runs
+                case 5: return 12000;//Breaking in the recruits
+                
+                case 6: return 120000;//s3 = 400 = 300 runs
+                case 7: return 120000;//Trojans
+                
+                case 8: return 240000;//s4 = 600 = 400 runs
+                case 9: return 240000;
+                
+                case 10: return 400000;//JK = 800 = 500 runs
+                case 11: return 400000;
+                
+                case 12: return 480000;//Roarm = 800 = 600 runs
+                case 13: return 480000;
+                
+                case 14: return 4800000;//s5 = 800 = 6000 runs
+                case 15: return 4800000;
+                
+                case 16: return 7000000;//s6 = 1000 = 7000 runs
+                case 17: return 7000000;
+                
+                case 18: return 9600000;//FSC = 1200 = 8000 runs
+                case 19: return 9600000;
+                
+                case 20: return 10800000;//Dan = 1200 = 9000 runs
+                case 21: return 10800000;
+                case 22: return 10800000;
+                case 23: return 10800000;
+                case 24: return 10800000;
+                
+                case 25: return 12000000;//Core = 1200 = 100000 runs
             }
             
-            return 19*(UserSpace.data.areas)*(UserSpace.data.areas+1)*(UserSpace.data.areas+2);
+            return Integer.MAX_VALUE;
         }
         /*
 	public void oldhandle(MessageReceivedEvent event) {

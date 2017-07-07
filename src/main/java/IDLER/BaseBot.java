@@ -1,5 +1,6 @@
-package sx.blah.discord.examples;
+package IDLER;
 
+import IDLER.BoppBot;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.util.DiscordException;
@@ -32,6 +33,7 @@ public class BaseBot {
 		try {
 			IDiscordClient client = builder.login(); // Builds the IDiscordClient instance and logs it in
 			bot = new BoppBot(client); // Creating the bot instance
+                        System.out.println(client);
 		} catch (DiscordException e) { // Error occurred logging in
 			System.err.println("Error occurred while logging in!");
 			e.printStackTrace();

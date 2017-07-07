@@ -15,40 +15,47 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class T3 extends Area{
+public class Arkus extends Area{
     
-    public T3(){
-        name = "Tier 3 arcade";
-        crownPayout = 12000;
-        timeTillCompletion = timeTillCompletion * 60;
+    public Arkus(){
+        name = "Arkus: A lost cause";
+        crownPayout = 20000;
+        timeTillCompletion = timeTillCompletion * 140;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
-        for(int i = 0; i < 100; ++i){
-            UD.giveMinerals();
+        
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("dark_leviathan_blade");
         }
-        if(oRan.nextInt(100) < 4){
-            UD.adv_orbs += 1;
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("warden_armor");
         }
-        if(oRan.nextInt(100) < 4){
-            UD.elite_orbs += 1;
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("warden_helm");
         }
-        if(oRan.nextInt(100) < 13){
+        if(oRan.nextInt(100) < 3){
+            UD.gear.add("ruinous_crystal");
+        }
+        
+        if(oRan.nextInt(100) < 10){
             UD.eternal_orbs += 1;
         }
         if(oRan.nextInt(100) < 23){
             this.giveLoot(UD);
+        } else {
+            UD.almire_coins+=3;
         }
     }
 }

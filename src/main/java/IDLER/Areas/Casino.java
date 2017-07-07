@@ -15,14 +15,33 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo;
+package IDLER.Areas;
 
-import java.util.Random;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class SuperRandom {
-    public static Random oRan = new Random();
+public class Casino extends Area{
+    
+    public Casino(){
+        name = "(EVENT) Golden Slime Casino";
+        crownPayout = 0;
+        timeTillCompletion = 6000;
+        //timeTillCompletion = 0;
+    }
+    
+    public void giveLoot(UserData UD){
+        if(UD.slime_coins > 0){
+            UD.slime_coins += -1;
+        } else {
+            return;
+        }
+        UD.crowns += 50 * oRan.nextInt(10);
+        if(oRan.nextInt(1000) == 23){
+            UD.crowns += 50 * oRan.nextInt(1000);
+        }
+    }
 }

@@ -15,39 +15,44 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  */
-package sx.blah.discord.gametwo.Areas;
+package IDLER.Areas;
 
-import static sx.blah.discord.gametwo.SuperRandom.oRan;
-import sx.blah.discord.gametwo.UserData;
+import static IDLER.SuperRandom.oRan;
+import IDLER.UserData;
 
 /**
  *
  * @author FF6EB4
  */
-public class RJP extends Area{
+public class Decon extends Area{
     
-    public RJP(){
-        name = "Royal Jelly Palace";
-        crownPayout = 3000;
-        timeTillCompletion = 60000 * 30;
+    public Decon(){
+        name = "Deconstruction Zone";
+        crownPayout = 100;
+        timeTillCompletion = timeTillCompletion * 30;
         //timeTillCompletion = 0;
     }
     
     public void giveLoot(UserData UD){
         super.giveLoot(UD);
-        
-        
-        if(oRan.nextInt(100) < 15){
-            UD.elite_orbs += 1;
+        for(int i = 0; i < 8; ++i){
+            UD.giveMinerals();
         }
-        if(oRan.nextInt(100) < 5){
+        
+        if(oRan.nextInt(100) < 10){
+            UD.gear.add("darkfang_shield");
+        }
+        
+        if(oRan.nextInt(100) < 7){
             UD.adv_orbs += 1;
+        }
+        
+        if(oRan.nextInt(100) < 20){
+            UD.elite_orbs += 1;
         }
         
         if(oRan.nextInt(100) < 23){
             this.giveLoot(UD);
-        } else {
-            UD.jelly_gems+=3;
         }
     }
 }
